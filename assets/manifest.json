@@ -1,0 +1,26 @@
+{
+    "bundles": [{
+        "name": "game-screen",
+        "assets": [{
+                "name": "explorer",
+                "srcs": "images/explorer.png"
+            },
+            {
+                "name": "blob",
+                "srcs": "images/blob.png"
+            },
+            {
+                "name": "treasure",
+                "srcs": "images/treasure.png"
+            },
+            {
+                "name": "dungeon",
+                "srcs": "images/dungeon.png"
+            },
+            {
+                "name": "door",
+                "srcs": "images/door.png"
+            }
+        ]
+    }]
+}
