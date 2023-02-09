@@ -19,6 +19,9 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@pixi/events": "^7.1.2",
+    "@pixi/particle-emitter": "^5.0.8",
+    "eventemitter3": "^5.0.0",
     "pixi.js": "^7.1.2"
   }
 }

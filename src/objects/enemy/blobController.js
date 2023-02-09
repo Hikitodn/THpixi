@@ -18,20 +18,25 @@ export class BlobController extends Blob {
   }
 
   movement() {
-    this.enemies.forEach((enemy) => {
-      enemy.then((blob) => {
-        console.log(blob.x);
-      });
-      const enemyHitWall = contain(enemy, {
-        x: 28,
-        y: 10,
-        width: 488,
-        height: 480,
-      });
+    this.enemies.forEach((blob) => {
+      blob.then((enemy) => {
+        enemy.y += enemy.vy;
 
-      if (enemyHitWall === "top" || enemyHitWall === "bottom") {
-        enemy.vy *= -1;
-      }
+        const enemyHitWall = contain(enemy, {
+          x: 28,
+          y: 30,
+          width: 488,
+          height: 480,
+        });
+
+        if (enemyHitWall === "top" || enemyHitWall === "bottom") {
+          enemy.vy *= -1;
+        }
+      });
     });
+  }
+
+  update(dt) {
+    this.movement();
   }
 }

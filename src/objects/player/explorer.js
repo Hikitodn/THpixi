@@ -1,5 +1,6 @@
 import { Assets, Container, Sprite } from "pixi.js";
 import { Keyboard } from "../../input/keyboard";
+import { gameSetting } from "../../setting";
 import { contain } from "../../ultis/ulti";
 
 export class Explorer extends Container {
@@ -10,9 +11,12 @@ export class Explorer extends Container {
   }
 
   init() {
-    Assets.load("explorer").then((asset) => {
-      const sprite = new Sprite(asset);
+    this.explorer = Assets.load("explorer").then((asset) => {
+      let sprite = new Sprite(asset);
+      sprite.x = 68;
+      sprite.y = gameSetting.HEIGHT / 2 - sprite.height / 2;
       this.addChild(sprite);
+      return sprite;
     });
   }
 
@@ -71,5 +75,25 @@ export class Explorer extends Container {
         this.vy = 0;
       }
     };
+  }
+
+  update(dt) {
+    this.explorer.then((player) => {
+      player.x += this.vx;
+      player.y += this.vy;
+
+      const playerHitWall = contain(player, {
+        x: 30,
+        y: 10,
+        width: 480,
+        height: 480,
+      });
+
+      if (playerHitWall === "top" || playerHitWall === "bottom") {
+        this.vy = 0;
+      } else if (playerHitWall === "left" || playerHitWall === "right") {
+        this.vx = 0;
+      }
+    });
   }
 }

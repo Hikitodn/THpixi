@@ -18,7 +18,7 @@ export default class Game {
   }
 
   gamePlay() {
-    // container
+    // container game scene
     this.gameContainer = new Container();
     this.app.stage.addChild(this.gameContainer);
 

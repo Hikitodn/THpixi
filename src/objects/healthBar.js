@@ -1,1 +1,3 @@
-class healthBar {}
+class healthBar {
+  constructor() {}
+}
