@@ -5,13 +5,16 @@ export class Blob extends Container {
     super();
   }
 
-  init(posX, posY) {
-    Assets.load("blob").then((asset) => {
-      const sprite = new Sprite(asset);
+  init(posX, posY, vx, vy) {
+    let result = Assets.load("blob").then((asset) => {
+      let sprite = new Sprite(asset);
       sprite.x = posX;
       sprite.y = posY;
+      sprite.vx = vx;
+      sprite.vy = vy;
       this.addChild(sprite);
       return sprite;
     });
+    return result;
   }
 }

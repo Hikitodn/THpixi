@@ -1,5 +1,6 @@
 import { Assets, Container, Sprite } from "pixi.js";
 import { Keyboard } from "../../input/keyboard";
+import { contain } from "../../ultis/ulti";
 
 export class Explorer extends Container {
   constructor() {
@@ -26,7 +27,6 @@ export class Explorer extends Container {
       //Change the cat's velocity when the key is pressed
       this.vx = -3;
       this.vy = 0;
-      console.log(this.vx);
     };
 
     //Left arrow key `release` method
