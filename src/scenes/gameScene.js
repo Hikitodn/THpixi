@@ -1,4 +1,5 @@
 import { Assets, Container, Ticker } from "pixi.js";
+import { Sound } from "@pixi/sound";
 import { gameSetting } from "../setting";
 import { Door } from "../objects/map/door";
 import { Dungeon } from "../objects/map/dungeon";
@@ -27,6 +28,13 @@ export class GameScene extends Container {
     this.initBlob();
     this.initGameOver();
     this.initWin();
+
+    Sound.from({
+      url: "music/bgm.mp3",
+      preload: true,
+      autoPlay: true,
+      loop: true,
+    });
 
     Ticker.shared.add(this.update.bind(this));
   }
