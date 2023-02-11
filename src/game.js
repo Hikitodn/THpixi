@@ -2,6 +2,7 @@ import { Application, Assets, Container } from "pixi.js";
 import { GameScene } from "./scenes/gameScene";
 import { gameSetting } from "./setting";
 import manifest from "../assets/manifest.json";
+import { GameOver } from "./scenes/gameOverScene";
 
 export default class Game {
   constructor() {
@@ -18,10 +19,6 @@ export default class Game {
   }
 
   gamePlay() {
-    // container game scene
-    this.gameContainer = new Container();
-    this.app.stage.addChild(this.gameContainer);
-
     // game scene
     this.gameScene = new GameScene();
     this.app.stage.addChild(this.gameScene);
